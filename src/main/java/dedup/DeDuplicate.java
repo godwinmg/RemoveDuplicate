@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import com.google.common.primitives.Ints;
+
 /**
  * This class can be used for removing the duplicates from an integer array.
  * 
@@ -20,6 +22,19 @@ public class DeDuplicate {
 	}
 
 	/**
+	 * This method uses Google Guava library to convert a primitive array into
+	 * List @see com.google.common.primitives.Ints
+	 * 
+	 * @param dupArray
+	 * @return List<Integer>
+	 */
+	public List<Integer> removeDuplicateFast(int[] dupArray) {
+		List<Integer> duplicateList = Ints.asList(dupArray);
+		LinkedHashSet<Integer> orderedUniqueSet = new LinkedHashSet<Integer>(duplicateList);
+		return new ArrayList<Integer>(orderedUniqueSet);
+	}
+
+	/**
 	 * This method accepts an array of Integers and convert it to a list. When
 	 * we create List from array of primitive values, java wont automatically do
 	 * boxing
@@ -30,7 +45,7 @@ public class DeDuplicate {
 	public List<Integer> removeDuplicate(int[] dupArray) {
 		List<Integer> listOfInteger = IntStream.of(dupArray).boxed().collect(Collectors.toList());
 		HashSet<Integer> uniqueSet = new HashSet<Integer>(listOfInteger);
-		// uniqueSet.forEach(arg0 -> System.out.println(arg0));
+		// uniqueSet.forEach(result -> System.out.println(result));
 		return new ArrayList<Integer>(uniqueSet);
 
 	}
@@ -45,7 +60,7 @@ public class DeDuplicate {
 	public List<Integer> removeDuplicatesAndRetainOrder(int[] dupArray) {
 		List<Integer> listOfInteger = IntStream.of(dupArray).boxed().collect(Collectors.toList());
 		LinkedHashSet<Integer> orderedUniqueSet = new LinkedHashSet<Integer>(listOfInteger);
-		// orderedUniqueSet.forEach(display -> System.out.println(display));
+		// orderedUniqueSet.forEach(result -> System.out.println(result));
 		return new ArrayList<Integer>(orderedUniqueSet);
 	}
 
@@ -56,8 +71,10 @@ public class DeDuplicate {
 
 		DeDuplicate obj = new DeDuplicate();
 		System.out.println("***********Removing duplicates*********");
-		obj.removeDuplicate(randomIntegers).forEach(action -> System.out.printf(" %d ", action));
+		obj.removeDuplicate(randomIntegers).forEach(result -> System.out.printf(" %d ", result));
 		System.out.println("\n***********Removing duplicates And retain order *********");
-		obj.removeDuplicatesAndRetainOrder(randomIntegers).forEach(action -> System.out.printf(" %d ", action));
+		obj.removeDuplicatesAndRetainOrder(randomIntegers).forEach(result -> System.out.printf(" %d ", result));
+		System.out.println("\n***********Removing duplicates And retain order Using Google Guava*********");
+		obj.removeDuplicateFast(randomIntegers).forEach(result -> System.out.printf(" %d ", result));
 	}
 }

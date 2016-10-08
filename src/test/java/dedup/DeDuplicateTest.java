@@ -42,4 +42,15 @@ public class DeDuplicateTest {
 
 	}
 
+	@Test
+	public void removeDuplicateGuavaTest() {
+
+		List<Integer> expectedResult = new ArrayList<Integer>(Arrays.asList(1, 2, 34, 25, 45, 3, 26, 85, 4, 86, 43,
+				10000, 11, 16, 19, 18, 9, 20, 17, 8, 15, 6, 5, 10, 14, 12, 13, 7));
+		DeDuplicate rd = new DeDuplicate();
+		List<Integer> actualResult = rd.removeDuplicateFast(randomIntegers);
+		Assert.assertNotNull(actualResult);
+		Assert.assertEquals(actualResult, expectedResult);
+	}
+
 }
