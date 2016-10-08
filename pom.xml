@@ -30,7 +30,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>dedup.RemoveDuplicates</mainClass>
+							<mainClass>dedup.DeDuplicate</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
