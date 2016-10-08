@@ -3,4 +3,12 @@
   <groupId>org.godwinmg.excercise</groupId>
   <artifactId>dedup</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+  	<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>6.9.13.6</version>
+</dependency>
+  </dependencies>
 </project>
