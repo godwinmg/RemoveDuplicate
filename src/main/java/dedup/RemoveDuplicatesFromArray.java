@@ -7,7 +7,7 @@ public class RemoveDuplicatesFromArray {
             13,5,11,4,7,19,16,5,9,12,3,20,7,15,17,10,6,1,8,18,4,14,13,2,11};  
 
 	public RemoveDuplicatesFromArray() {
-		
+		System.out.println("MyFirstCommit");
 	}
 
 	public static void main(String[] args) {
